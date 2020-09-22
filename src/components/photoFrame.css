@@ -1,0 +1,16 @@
+/* Camera frame styles */
+
+.camera-frame-container {
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  opacity: 0;
+}
+
+.camera-frame {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  background: url(../assets/camera-frame.png) center no-repeat;
+  background-size: 100% 100%;
+}
