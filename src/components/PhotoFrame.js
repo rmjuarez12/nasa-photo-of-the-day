@@ -5,11 +5,11 @@ import { gsap } from "gsap";
 
 // Import assets
 import "./photoFrame.css";
-import Controls from "./Controls";
 
 // Import components
 import PhotoInfo from "./PhotoInfo";
 import PhotoTitle from "./PhotoTitle";
+import Controls from "./Controls";
 
 export default function PhotoFrame(props) {
   // Get some states
@@ -19,7 +19,7 @@ export default function PhotoFrame(props) {
   // Add a few effects
   useEffect(() => {
     gsap.to(".camera-frame-container", { opacity: 1, duration: 1.5 });
-    gsap.to(".camera-frame-container img", { opacity: 1, scale: 1, duration: 2, delay: 1 });
+    gsap.to(".camera-frame-container .nasa-photo", { opacity: 1, scale: 1, duration: 2, delay: 1 });
   }, []);
 
   // Toggle the info to show or hide
@@ -48,7 +48,7 @@ export default function PhotoFrame(props) {
 
   return (
     <div className="camera-frame-container">
-      <img src={props.photoData.hdurl} alt="" />
+      <img src={props.photoData.hdurl} alt="" className="nasa-photo" />
 
       <div className="camera-frame-img"></div>
 
@@ -61,9 +61,13 @@ export default function PhotoFrame(props) {
           hideFrame={hideFrame}
         />
 
-        <PhotoInfo photoData={props.photoData} />
+        <PhotoInfo photoData={props.photoData} changeDate={props.changeDate} />
 
-        <PhotoTitle photoData={props.photoData} />
+        <PhotoTitle
+          photoData={props.photoData}
+          selectedDate={props.selectedDate}
+          changeDate={props.changeDate}
+        />
       </div>
     </div>
   );
