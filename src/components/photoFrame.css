@@ -5,12 +5,145 @@
   width: 100%;
   position: relative;
   opacity: 0;
+  overflow: hidden;
+}
+
+.camera-frame-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  opacity: 0;
+  transform: scale(0);
+}
+
+.camera-frame-img {
+  height: 100vh;
+  width: 100%;
+  background: url(../assets/camera-frame.png) center no-repeat;
+  background-size: 100% 100%;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
 }
 
 .camera-frame {
-  height: 100vh;
-  width: 100%;
+  z-index: 200;
+  flex-direction: column;
+  align-items: center;
   position: relative;
-  background: url(../assets/camera-frame.png) center no-repeat;
-  background-size: 100% 100%;
+  display: flex;
+  font-family: "Do Hyeon", sans-serif;
+  width: 100%;
+  min-height: 100vh;
+  justify-content: space-between;
+}
+
+/* Bottom Frame */
+
+.frame-bottom {
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  text-align: center;
+  width: 90%;
+  margin: 0 auto;
+  padding: 40px 0;
+  align-items: flex-end;
+}
+
+.photo-title h3 {
+  font-size: 25pt;
+}
+
+.photo-title h1 {
+  font-size: 35pt;
+  text-transform: uppercase;
+}
+
+.photo-full-info {
+  background-color: rgba(0, 0, 0, 0.9);
+  padding: 30px;
+  transform: translateX(-100vh);
+  opacity: 0;
+  color: white;
+  display: none;
+}
+
+.photo-full-info h2 {
+  font-size: 25pt;
+}
+
+.photo-full-info h3 {
+  font-size: 20pt;
+  margin-bottom: 15px;
+}
+
+.photo-full-info p {
+  font-size: 16pt;
+  line-height: 25px;
+}
+
+.frame-bottom .author p,
+.frame-bottom .date p {
+  font-size: 16pt;
+}
+
+/* Camera controls style */
+
+.camera-frame .controls {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  font-family: "Do Hyeon", sans-serif;
+  color: white;
+  padding: 40px 0;
+  justify-content: space-between;
+}
+
+.camera-frame .info-menu-container {
+  position: relative;
+}
+
+.camera-frame .info-menu-container button {
+  font-family: "Do Hyeon", sans-serif;
+  font-size: 30pt;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: 0.3s all;
+}
+
+.camera-frame .info-menu-container button:hover {
+  background: black;
+  color: white;
+}
+
+/* Responsive code */
+
+@media only screen and (max-width: 700px) {
+  .frame-bottom,
+  .camera-frame .controls,
+  .camera-frame-img {
+    display: none !important;
+  }
+
+  .photo-full-info {
+    opacity: 1 !important;
+    display: block !important;
+    transform: none !important;
+  }
+
+  .camera-frame-container img {
+    position: static !important;
+    margin-bottom: 40px;
+  }
+
+  .camera-frame {
+    position: static !important;
+  }
 }

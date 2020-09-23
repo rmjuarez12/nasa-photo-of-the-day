@@ -110,6 +110,9 @@ section {
   box-sizing: border-box;
 }
 
+/* Import fonts */
+@import url("https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap");
+
 body {
   background: black;
 }
