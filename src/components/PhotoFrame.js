@@ -41,14 +41,18 @@ export default function PhotoFrame(props) {
 
     if (hideFrame === false) {
       gsap.to(".camera-frame-img", { opacity: 0, duration: 1.5 });
+      gsap.to(".frame-bottom", { opacity: 0, duration: 1.5 });
     } else {
       gsap.to(".camera-frame-img", { opacity: 1, duration: 1.5 });
+      gsap.to(".frame-bottom", { opacity: 1, duration: 1.5 });
     }
   }
 
   return (
     <div className="camera-frame-container">
-      <img src={props.photoData.hdurl} alt="" className="nasa-photo" />
+      <div className="nasa-photo" style={{ backgroundImage: `url(${props.photoData.hdurl})` }}>
+        <img src={props.photoData.hdurl} alt="" />
+      </div>
 
       <div className="camera-frame-img"></div>
 
